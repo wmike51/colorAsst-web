@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ColorAsst test" />
+    <title>ColorAsst test Main page</title>
+
+    <style>
+      .slidecontainer {
+        width: 50%; /* Width of the outside container */
+      }
+
+      /* The slider itself */
+      .slider {
+        -webkit-appearance: none; /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 25px; /* Specified height */
+        background: gray; /* Gray background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+        transition: opacity 0.2s;
+      }
+
+      /* Mouse-over effects */
+      .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+      }
+
+      /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: white; /* white background */
+        cursor: pointer; /* Cursor on hover */
+      }
+
+      .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: white; /* Red background */
+        cursor: pointer; /* Cursor on hover */
+      }
+      #red_range::-webkit-slider-thumb {
+        background: red;
+      }
+
+      #green_range::-webkit-slider-thumb {
+        background: green;
+      }
+
+      #blue_range::-webkit-slider-thumb {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>test page for implementation</h1>
+    <p><em>ColorAsst</em> description text</p>
+    <h2>What is ColorAsst?</h2>
+    <p>test</p>
+    <h3 id="section-rgb cube">
+      <a href="sections/vis_img.html">RGB cube image</a>
+    </h3>
+    <h4>Please input the RGB value.</h4>
+    <p>Red value slider:</p>
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="50"
+        class="slider"
+        id="red_range"
+      />
+      <p>Value: <span id="output_red"></span></p>
+    </div>
+
+    <p>Green value slider:</p>
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="50"
+        class="slider"
+        id="green_range"
+      />
+
+      <p>Value: <span id="output_green"></span></p>
+    </div>
+
+    <script>
+      var red_slider = document.getElementById("red_range");
+      var red_output = document.getElementById("output_red");
+
+      red_output.innerHTML = red_slider.value;
+
+      red_slider.oninput = function () {
+        red_output.innerHTML = this.value;
+      };
+
+      var green_slider = document.getElementById("green_range");
+      var green_output = document.getElementById("output_green");
+      green_output.innerHTML = green_slider.value;
+
+      green_slider.oninput = function () {
+        green_output.innerHTML = this.value;
+      };
+    </script>
+
+    <p>Blue value slider:</p>
+    <div class="slidecontainer">
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="50"
+        class="slider"
+        id="blue_range"
+      />
+      <p>Value: <span id="output_blue"></span></p>
+    </div>
+
+    <script>
+      var blue_slider = document.getElementById("blue_range");
+      var blue_output = document.getElementById("output_blue");
+      blue_output.innerHTML = blue_slider.value;
+
+      blue_slider.oninput = function () {
+        blue_output.innerHTML = this.value;
+      };
+    </script>
+
+    <script></script>
+    <p>Value: <span id="output_pred"></span></p>
+    <h5 id="csv"><a href="complete_data.csv">csv file</a></h5>
+
+    <h6>references</h6>
+    <a href="#">Back to top</a>
+  </body>
+</html>
